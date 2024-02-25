@@ -3,9 +3,9 @@
 text.*
 .DS_Store
 .idea
+.vscode/**/*/
 !.vscode/settings.json
 !.vscode/extensions.json
-.vscode
 .env
 
 # test
