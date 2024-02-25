@@ -9,7 +9,7 @@ text.*
 .env
 
 # test
-docker/
+docker
 
 # Logs
 logs
