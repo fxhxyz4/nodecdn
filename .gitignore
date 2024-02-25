@@ -8,6 +8,9 @@ text.*
 .vscode
 .env
 
+# test
+docker
+
 # Logs
 logs
 *.log
