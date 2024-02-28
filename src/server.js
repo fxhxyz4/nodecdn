@@ -1,6 +1,6 @@
 import { router } from './routes/get/router.js';
 import { settings } from '../config/config.js';
-import { logger } from './utils/log.js';
+import { logger } from './utils/writeLog.js';
 import express from 'express';
 import morgan from 'morgan';
 import chalk from 'chalk';
@@ -10,7 +10,7 @@ import fs from 'fs';
 
 const app = express();
 
-const { PORT, HOST, NODE_ENV, LOGS } = settings;
+const { PORT, HOST, NODE_ENV, LOGS, LOGS_PATH } = settings;
 
 const publicPath = `./public/`;
 const __dirname = path.dirname(publicPath);
@@ -27,7 +27,7 @@ if (NODE_ENV !== 'dev') {
         return res.statusCode < 400;
       },
 
-      stream: logger(),
+      stream: logger(LOGS_PATH),
     })
   );
 }
