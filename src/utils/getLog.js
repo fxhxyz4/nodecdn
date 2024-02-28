@@ -6,6 +6,4 @@ const displayLog = () => {
   return console.log(chalk.bgMagenta(fs.readFileSync(settings.LOGS_PATH)));
 };
 
-displayLog();
-
-export { displayLog };
+export default displayLog();
