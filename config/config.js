@@ -19,6 +19,7 @@ const settings = {
   PORT: process.env.PORT,
   HOST: process.env.HOST,
   NODE_ENV: process.env.NODE_ENV,
+  LOGS: process.env.LOGS,
 };
 
 Object.freeze(settings);
