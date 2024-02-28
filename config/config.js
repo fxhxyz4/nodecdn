@@ -2,8 +2,11 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 const __dirname = path.dirname(`./`);
-
 const envFiles = ['.env', `.env.${process.env.NODE_ENV}`];
+
+let settings = {};
+
+Object.freeze(settings);
 
 if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'test') {
   dotenv.config({
@@ -15,13 +18,12 @@ if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'test') {
   });
 }
 
-const settings = {
+settings = {
   PORT: process.env.PORT,
   HOST: process.env.HOST,
   NODE_ENV: process.env.NODE_ENV,
   LOGS: process.env.LOGS,
+  LOGS_PATH: process.env.LOGS_PATH,
 };
-
-Object.freeze(settings);
 
 export { settings };
