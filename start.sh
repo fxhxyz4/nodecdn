@@ -3,5 +3,5 @@
 yarn prettier
 yarn jshint
 
-yarn dep
+yarn prod
 # flyctl launch - host
