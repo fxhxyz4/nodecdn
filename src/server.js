@@ -41,6 +41,6 @@ app.use('/', router);
 
 app.listen(PORT, () => {
   console.debug(
-    chalk.bgCyan(`Server started on ${HOST}:${PORT} / NODE_ENV: ${NODE_ENV}`)
+    chalk.bgCyan(`Server started on ${HOST}:${PORT} | NODE_ENV: ${NODE_ENV}`)
   );
 });
