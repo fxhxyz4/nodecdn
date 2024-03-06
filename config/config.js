@@ -6,8 +6,6 @@ const envFiles = ['.env', `.env.${process.env.NODE_ENV}`];
 
 let settings = {};
 
-Object.freeze(settings);
-
 if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'test') {
   dotenv.config({
     path: path.resolve(__dirname, envFiles[1]),
@@ -25,5 +23,7 @@ settings = {
   LOGS: process.env.LOGS,
   LOGS_PATH: process.env.LOGS_PATH,
 };
+
+Object.freeze(settings);
 
 export { settings };
