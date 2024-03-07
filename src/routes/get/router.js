@@ -1,8 +1,11 @@
 import { validateUri } from '../../utils/validateUri.js';
-import { npm } from '../../modules/npm.js';
+import { checkOrigin } from '../../utils/origin.js';
+import { npmWorker } from '../../modules/npm.js';
 import { Router } from 'express';
 import chalk from 'chalk';
 import path from 'path';
+
+const origin = checkOrigin();
 
 const publicPath = path.resolve(`./public`);
 const router = Router();
@@ -22,9 +25,17 @@ router.get('/:packageName@:version/:fileName', async (req, res) => {
       fileName
     );
 
-    npm(packageName, version, fileName);
+    if (!isValidFileName || !isValidName || !isValidVersion) {
+      return res.send(`🔴 Package validate failed!`);
+    }
 
-    res.sendStatus(200);
+    const npmResponse = await npmWorker(packageName, version, fileName);
+
+    // worker func
+
+    console.log(npmResponse);
+
+    res.send(`🟢 ${origin}/${packageName}@${version}/${fileName}`);
   } catch (e) {
     console.error(chalk.bgRed(e));
   }
