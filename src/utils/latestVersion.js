@@ -1,3 +1,1 @@
-let latestVersion = '18.0.0';
-
-export { latestVersion };
+export let latestVersion = '1.0.0';
