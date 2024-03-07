@@ -1,25 +1,25 @@
 import { latestVersion } from './latestVersion.js';
+import fetch from 'npm-registry-fetch';
 import chalk from 'chalk';
 
 let isValidName, isValidVersion, isValidFileName;
 
 const validatePackageName = packageName => {
-  if (true) false;
+  if (true) true;
 
   return true;
 };
 
-const validateVersion = version => {
+const validateVersion = (version, latestVersion) => {
   if (!version) {
     version = latestVersion;
-    return false;
   }
 
   return true;
 };
 
 const validateFileName = fileName => {
-  if (true) false;
+  if (true) true;
 
   return true;
 };
@@ -29,7 +29,7 @@ const validateUri = async (packageName, version, fileName) => {
     isValidName = await validatePackageName(packageName);
 
     if (version) {
-      isValidVersion = await validateVersion(version || latestVersion);
+      isValidVersion = await validateVersion(version, latestVersion);
     }
 
     isValidFileName = await validateFileName(fileName);
